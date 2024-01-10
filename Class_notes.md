@@ -55,7 +55,7 @@ attribute and element has no children
 my venv: web-scraping
 conda create --name web-scraping
 
-## BeautifulSoup
+# BeautifulSoup
 
 Steps to scrap the page:
 - fetch the pages using requests
@@ -91,3 +91,51 @@ soup.find_all('h2') # returns a list
 ## Scrap a single HTML page
 
 Right click inspect to get the part of the html code of the page
+
+## Scraping multiple pages on a single page
+target page: https://subslikescript.com/movies
+
+The href gives the address(or subaddress from the root)
+
+## Pagination
+Multiple page from the website. Easier with Selenium
+
+ul class="pagination"
+
+## XPath
+Selecting nodes from documents
+
+Select an element with //tagName
+// means pick out the node at any level in an XML document
+
+//tagName[1]: pick the first one
+//tagName[@AttributeName="Value"]
+
+functions:
+- contains(): //tagName[contains(@AttributeName,"Value")]; and; or
+- starts-with()
+
+e.g. //p/text()
+//div[@class="full-script"]/text()
+//p[(@class="plot")or(@class="plot2")]
+//p[contains(@class, "plot")]
+
+### XPath syntax
+
+/: select **the children** from the node set on the left side of this character
+//:matchin nods set on any level within the document
+
+//article/h1/text()
+
+.:the present context should be used
+..:refers to a parent node
+*/:select all
+./*: all the children nodes considering the current node
+
+# Selenium
+
+## Identify a js driven website
+
+Inspect-setting-preference, if disable javascript and the website stops working then the site is driven by JS
+
+target website: https://www.adamchoi.co.uk/overs/detailed 
