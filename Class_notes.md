@@ -132,6 +132,8 @@ e.g. //p/text()
 */:select all
 ./*: all the children nodes considering the current node
 
+XPath starts with 1.
+
 # Selenium
 
 ## Identify a js driven website
@@ -139,3 +141,51 @@ e.g. //p/text()
 Inspect-setting-preference, if disable javascript and the website stops working then the site is driven by JS
 
 target website: https://www.adamchoi.co.uk/overs/detailed 
+
+## Locate element with Selenium
+
+```python
+driver.find_element_by_id('id')
+driver.find_element_by_class_name('classname')
+# for example
+driver.find_element_by_class_name('full-script')
+driver.find_element_by_tag_name('h1')
+
+# for multiple elements
+find_elements_by_class_name('full-script') # returns a list
+```
+
+By elements is usually used if we want to locate multiple tages.
+
+```html
+<article class="main-article">
+    <h1> Titanic (1997) </h1>
+    <p class="plot"> 84 years later ... </p>
+    <div class="full-script"> 13 meters. You... </div>
+</article>
+```
+
+Find elements by xpath
+```Python
+driver.find_element_by_xpath('//tag[@AttributeName="Value"]')
+```
+In Value we need to write the Xpath.
+
+## Button with Selenium
+
+Build Xpath in the inspection section.
+
+## Save the data in pandas DataFrame
+
+## Select elements to a drop down
+Dynamic dropdown: the link doens't change but the contents shown changes.
+
+## Explicit wait
+```Python
+from selenium.webdriver.common.by import By
+from selenium.webdriver.support.ui import WebDriverWait
+from selenium.webdriver.support import expected_conditions as EC
+
+# EC: expected condition of wait
+WebDriverWait(driver, 10).until(EC.presence_of_element_located((By.XPath," ")))
+```

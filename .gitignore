@@ -1,2 +1,4 @@
 *.txt
 *.pdf
+*.csv
+/Scrapy_learning/.idea/
